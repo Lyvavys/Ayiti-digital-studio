@@ -110,6 +110,14 @@ export default function Home() {
             Contact
           </a>
         </div>
+
+        {/* Menu pour téléphone */}
+        <nav className="flex items-center justify-around border-t border-slate-100 px-2 py-2 text-sm font-semibold text-slate-700 md:hidden">
+          <a href="#accueil" className="text-blue-700">Accueil</a>
+          <a href="#apropos" className="hover:text-blue-700">À propos</a>
+          <a href="#services" className="hover:text-blue-700">Services</a>
+          <a href="#projets" className="hover:text-blue-700">Projets</a>
+        </nav>
       </header>
 
       {/* Section d'accueil (bord incliné) */}
@@ -172,7 +180,10 @@ export default function Home() {
       </section>
 
       {/* À propos */}
-      <section id="apropos" className="mx-auto max-w-3xl px-4 py-16 text-center">
+      <section
+        id="apropos"
+        className="mx-auto max-w-3xl scroll-mt-28 px-4 py-16 text-center"
+      >
         <h2 className="text-2xl font-bold text-slate-800 sm:text-3xl">
           Développeur web et créateur d&apos;outils{" "}
           <span className="text-blue-700">IA</span> pour les{" "}
@@ -187,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section id="services" className="scroll-mt-16 bg-slate-50">
+      <section id="services" className="scroll-mt-28 bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-center text-3xl font-bold text-blue-900">
             Mes services
@@ -197,7 +208,7 @@ export default function Home() {
               <div
                 key={service.id}
                 id={service.id}
-                className="scroll-mt-24 flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md"
+                className="scroll-mt-32 flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 text-2xl">
                   {service.icone}
@@ -229,7 +240,7 @@ export default function Home() {
       </section>
 
       {/* Projets */}
-      <section id="projets" className="scroll-mt-16">
+      <section id="projets" className="scroll-mt-28">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <h2 className="text-center text-3xl font-bold text-blue-900">
             Mes projets
@@ -259,7 +270,7 @@ export default function Home() {
       {/* Contact */}
       <section
         id="contact"
-        className="mx-auto max-w-3xl scroll-mt-16 px-4 py-16 text-center"
+        className="mx-auto max-w-3xl scroll-mt-28 px-4 py-16 text-center"
       >
         <h2 className="text-3xl font-bold text-blue-900">Contact</h2>
         <p className="mt-4 text-slate-600">
