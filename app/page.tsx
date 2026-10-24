@@ -44,26 +44,34 @@ const services = [
   },
 ];
 
+// Pour chaque projet terminé : collez son lien dans « lien ».
+// Exemple : lien: "https://restaurant-lakay.vercel.app",
+// Si « lien » est vide, la carte affiche « Bientôt disponible ».
 const projets = [
   {
     titre: "Site de restaurant",
     description: "Menu, photos des plats, horaires et réservation par WhatsApp.",
+    lien: "https://restaurant-lakay.vercel.app/",
   },
   {
     titre: "Site d'hôtel en Haïti",
     description: "Présentation des chambres, tarifs et contact direct pour réserver.",
+    lien: "",
   },
   {
     titre: "Site d'école",
     description: "Présentation de l'école, programmes, inscriptions et actualités.",
+    lien: "",
   },
   {
     titre: "Boutique de produits",
     description: "Catalogue de produits et commande simple par WhatsApp.",
+    lien: "",
   },
   {
     titre: "Gestion ventes et dépenses",
     description: "Enregistrer les ventes, calculer le profit et recevoir un rapport chaque semaine.",
+    lien: "",
   },
 ];
 
@@ -258,9 +266,20 @@ export default function Home() {
                   {projet.titre}
                 </h3>
                 <p className="mt-2 text-slate-600">{projet.description}</p>
-                <span className="mt-4 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
-                  Bientôt disponible
-                </span>
+                {projet.lien ? (
+                  <a
+                    href={projet.lien}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-block rounded-full bg-blue-900 px-5 py-2 text-sm font-semibold text-white hover:bg-blue-800"
+                  >
+                    Voir le projet
+                  </a>
+                ) : (
+                  <span className="mt-4 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+                    Bientôt disponible
+                  </span>
+                )}
               </div>
             ))}
           </div>
