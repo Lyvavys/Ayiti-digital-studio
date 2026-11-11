@@ -71,7 +71,7 @@ const projets = [
     titre: "Site de restaurant",
     description: "Menu, photos des plats, horaires et réservation par WhatsApp.",
     lien: "https://restaurant-lakay.vercel.app/",
-    demo: true,
+    demo: false, // vrai client
     emoji: "🍽️",
     couleur: "from-red-900 via-red-800 to-amber-600",
   },
@@ -554,7 +554,7 @@ export default function Home() {
             <TitreSection
               surtitre="Portfolio"
               titre="Mes projets"
-              texte="Des sites de démonstration pour montrer ce que je peux réaliser pour votre commerce."
+              texte="Des sites réalisés pour des commerces, et d'autres en préparation pour montrer ce que je peux faire pour vous."
             />
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {projets.map((projet, index) => (
@@ -603,11 +603,16 @@ export default function Home() {
                           Bientôt disponible
                         </span>
                       )}
-                      {projet.demo && projet.lien && (
-                        <span className="inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
-                          Projet de démonstration
-                        </span>
-                      )}
+                      {projet.lien &&
+                        (projet.demo ? (
+                          <span className="inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600">
+                            Projet de démonstration
+                          </span>
+                        ) : (
+                          <span className="inline-block rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-800">
+                            Client
+                          </span>
+                        ))}
                     </div>
                   </div>
                 </article>
