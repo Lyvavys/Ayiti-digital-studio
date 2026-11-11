@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* =========================================================
+   Palette Ayiti Digital Studio : bleu nuit + or
+   ========================================================= */
+@theme {
+  --color-nuit-950: #071534;
+  --color-nuit-900: #0b1f4d;
+  --color-nuit-800: #12306e;
+  --color-nuit-700: #1d4ed8;
+  --color-nuit-100: #e3eafc;
+  --color-nuit-50: #f2f5fd;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-or-400: #f5b700;
+  --color-or-300: #ffd255;
+  --color-or-100: #fff4cc;
+  /* Or foncé : lisible sur fond blanc (contraste > 4.5:1) */
+  --color-or-700: #8a5a00;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-creme: #fbf8f1;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif,
+    system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  word-spacing: 0.04em;
+}
+
+/* Contour visible pour la navigation au clavier */
+:focus-visible {
+  outline: 3px solid var(--color-or-400);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--color-or-300);
+  color: var(--color-nuit-900);
+}
+
+/* Petits points en fond (décor) */
+.motif-points {
+  background-image: radial-gradient(
+    rgb(255 255 255 / 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* =========================================================
+   Animations légères (CSS seulement)
+   ========================================================= */
+@keyframes monter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rayon {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes flotter {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.anim-monter {
+  animation: monter 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.delai-1 {
+  animation-delay: 0.1s;
+}
+.delai-2 {
+  animation-delay: 0.2s;
+}
+.delai-3 {
+  animation-delay: 0.3s;
+}
+.delai-4 {
+  animation-delay: 0.4s;
+}
+
+.anim-rayon {
+  animation: rayon 2.8s ease-in-out infinite;
+}
+
+.anim-flotter {
+  animation: flotter 4s ease-in-out infinite;
+}
+
+/* Apparition des sections au défilement (navigateurs récents).
+   Les autres navigateurs affichent simplement le contenu. */
+@supports (animation-timeline: view()) {
+  .apparaitre {
+    animation: monter linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+/* Respect des personnes qui désactivent les animations */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
