@@ -78,7 +78,7 @@ const projets = [
   {
     titre: "Site d'hôtel en Haïti",
     description: "Présentation des chambres, tarifs et contact direct pour réserver.",
-    lien: "",
+    lien: "https://hotel-ayiti.vercel.app/",
     demo: true,
     emoji: "🏨",
     couleur: "from-teal-900 via-teal-700 to-amber-500",
